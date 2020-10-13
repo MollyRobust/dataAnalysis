@@ -14,21 +14,7 @@ table = 'fbg_busi_bsc_warehousbillflow_m'
 # 创建hive连接
 conn = connect(host=hive_host, port=hive_port, database=db, auth_mechanism='PLAIN',)
 
-# 数据来源，数据库配置信息
-fbg_wms_hostname = cf.MySearch(filepath, 'mysql_fbg_wms_hostname')
-fbg_wms_port = int(cf.MySearch(filepath, 'mysql_fbg_wms_port'))
-fbg_wms_username = cf.MySearch(filepath, 'mysql_fbg_wms_username')
-fbg_wms_password = cf.MySearch(filepath, 'mysql_fbg_wms_password')
-srcDb = 'wms_goodcang_com'
-engine_wms = ("mysql+pymysql://%s:%s@%s:%d/%s?charset=utf8" % (fbg_wms_username, fbg_wms_password,
-                                                                  fbg_wms_hostname, fbg_wms_port, srcDb))
-
 # mysql目标数据库配置信息
-filepath = 'parameter.env'
-fbg_mid_hostname = cf.MySearch(filepath, 'mysql_fbg_mid_hostname')
-fbg_mid_port = int(cf.MySearch(filepath, 'mysql_fbg_mid_port'))
-fbg_mid_username = cf.MySearch(filepath, 'mysql_fbg_mid_username')
-fbg_mid_password = cf.MySearch(filepath, 'mysql_fbg_mid_password')
 dstDb = "fbg_mid_dw"
 dstTb = "t_bsc_check_tremonth_flow"
 
