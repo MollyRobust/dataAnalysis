@@ -32,7 +32,7 @@ t = datetime.datetime.now().strftime('%H')+':00:00'
 t_date = datetime.date.today()
 
 # 从MID数据库拿到仓库数据
-dbs_sql = """select * from wms_warehouse where warehouse_id != 12"""
+dbs_sql = """select * from wms_warehouse"""
 dbs_df = pd.read_sql(dbs_sql, engine_dest)
 
 # 取得要执行时间的仓库
